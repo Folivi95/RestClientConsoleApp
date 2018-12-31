@@ -1,11 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Runtime.Serialization;
 
 namespace WebAPIClient
 {
-    public class repo
+    [DataContract(Name="repo")]
+    public class Repository
     {
-        public string name;
+        [DataMember(Name ="name")]
+        public string Name { get; set; }
+
+        [DataMember(Name ="description")]
+        public string Description { get; set; }
+
+        [DataMember(Name ="html_url")]
+        public Uri GitHubHomeUrl { get; set; }
+
+        [DataMember(Name ="homepage")]
+        public Uri Homepage { get; set; }
+
+        [DataMember(Name ="watchers")]
+        public int Watchers { get; set; }
     }
 }
